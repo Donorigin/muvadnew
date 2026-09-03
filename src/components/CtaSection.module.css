@@ -1,0 +1,194 @@
+/* ==========================================================================
+   CTA Banner Section - Muvad Consults
+   Blue primary, orange accent
+   ========================================================================== */
+
+.ctaSection {
+  background: linear-gradient(135deg, #040d1a 0%, #0a2052 55%, #0052cc 100%);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle decorative circles */
+.ctaSection::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+.ctaSection::after {
+  content: "";
+  position: absolute;
+  bottom: -160px;
+  left: -100px;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  background: rgba(255, 87, 34, 0.06);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  padding: 6px 16px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.badgeDot {
+  width: 7px;
+  height: 7px;
+  background-color: #ff5722;
+  border-radius: 50%;
+}
+
+.title {
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.14;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  max-width: 760px;
+  margin-bottom: 20px;
+}
+
+.titleAccent {
+  color: #ff5722;
+}
+
+.body {
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: #94a3b8;
+  max-width: 680px;
+  margin-bottom: 48px;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #ff5722;
+  color: #ffffff;
+  padding: 16px 34px;
+  border-radius: 9999px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: all 0.28s ease;
+  box-shadow: 0 8px 24px rgba(255, 87, 34, 0.4);
+}
+
+.ctaBtn:hover {
+  background-color: #e64a19;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(255, 87, 34, 0.55);
+}
+
+.statsRow {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  margin-top: 60px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.statNumber {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.04em;
+}
+
+.statAccent {
+  color: #ff5722;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.statDivider {
+  width: 1px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .ctaSection {
+    padding: 72px 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .title {
+    font-size: 2.15rem;
+  }
+
+  .body {
+    font-size: 1rem;
+    margin-bottom: 36px;
+  }
+
+  .ctaBtn {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+
+  .statsRow {
+    gap: 28px;
+    margin-top: 40px;
+    padding-top: 36px;
+  }
+
+  .statDivider {
+    display: none;
+  }
+
+  .statNumber {
+    font-size: 1.9rem;
+  }
+}

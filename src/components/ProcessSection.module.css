@@ -1,0 +1,270 @@
+/* ==========================================================================
+   Process Section Component Styles - Muvad Consults
+   Precision designed to match FenceCo "Process" reference screenshots
+   Blue as primary color, Orange as secondary accent
+   ========================================================================== */
+
+.processSection {
+  background-color: #f8fafc;
+  padding: 100px 0 110px 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.processContainer {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --------------------------------------------------------------------------
+   Section Header Area (Centered Badge & Title)
+   -------------------------------------------------------------------------- */
+.headerArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+/* Badge Pill: • PROCESS */
+.processBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 6px 16px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0052cc;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.badgeDot {
+  width: 7px;
+  height: 7px;
+  background-color: #ff5722;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Headline */
+.sectionTitle {
+  font-size: clamp(2.3rem, 3.8vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: -0.03em;
+  color: #0b1a30;
+  max-width: 750px;
+}
+
+.highlightBlue {
+  color: #0052cc;
+  display: inline-block;
+}
+
+.highlightOrange {
+  color: #ff5722;
+  display: inline-block;
+}
+
+/* --------------------------------------------------------------------------
+   Steps Grid & Flow (Desktop: 4 columns with curved dashed connector arrows)
+   -------------------------------------------------------------------------- */
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  position: relative;
+  align-items: flex-start;
+}
+
+.stepCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  padding: 0 10px;
+}
+
+/* Circular Icon Container with Number Badge */
+.iconWrapper {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  margin-bottom: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconCircle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid #e0edff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0052cc;
+  box-shadow: 0 10px 25px -5px rgba(0, 82, 204, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stepCard:hover .iconCircle {
+  transform: translateY(-4px) scale(1.04);
+  border-color: #0052cc;
+  box-shadow: 0 16px 32px -6px rgba(0, 82, 204, 0.22);
+}
+
+/* Number Tag (01, 02, 03, 04) on top-left of circle - Orange secondary touch */
+.stepNumberBadge {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #ff5722;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(255, 87, 34, 0.35);
+  border: 2px solid #ffffff;
+  z-index: 3;
+}
+
+/* Step Content */
+.stepTitle {
+  font-size: 1.22rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #0b1a30;
+  margin-bottom: 12px;
+  letter-spacing: -0.015em;
+}
+
+.stepDescription {
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: #475569;
+  font-weight: 400;
+}
+
+/* --------------------------------------------------------------------------
+   Curved Dashed Connector Arrows (Desktop between steps)
+   -------------------------------------------------------------------------- */
+.arrowContainer {
+  position: absolute;
+  top: 32px;
+  right: -32px;
+  width: 64px;
+  height: 32px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.connectorSvg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adaptations (Tablet & Mobile Precision)
+   Matches the FenceCo Mobile Screenshot: clean, vertical, uncrowded
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1080px) {
+  .stepsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 32px;
+  }
+
+  .arrowContainer {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .processSection {
+    padding: 64px 0 72px 0;
+  }
+
+  .processContainer {
+    padding: 0 20px;
+  }
+
+  .headerArea {
+    margin-bottom: 48px;
+  }
+
+  .processBadge {
+    font-size: 0.72rem;
+    padding: 5px 14px;
+    margin-bottom: 16px;
+  }
+
+  .sectionTitle {
+    font-size: 2.1rem;
+    line-height: 1.2;
+  }
+
+  .stepsGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .arrowContainer {
+    display: none;
+  }
+
+  .iconWrapper {
+    width: 88px;
+    height: 88px;
+    margin-bottom: 20px;
+  }
+
+  .iconCircle {
+    width: 88px;
+    height: 88px;
+  }
+
+  .iconCircle svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .stepNumberBadge {
+    width: 30px;
+    height: 30px;
+    font-size: 0.76rem;
+  }
+
+  .stepTitle {
+    font-size: 1.18rem;
+    margin-bottom: 10px;
+  }
+
+  .stepDescription {
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+}

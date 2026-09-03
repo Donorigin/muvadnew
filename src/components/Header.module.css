@@ -1,0 +1,275 @@
+/* ==========================================================================
+   Global Sticky Header Component Styles - Muvad Consults
+   Edge-to-edge, 0 border radius, 0 outer margin/padding, sticky top: 0
+   Primary color: Blue (#0052cc), Secondary accent: Orange (#ff5722)
+   ========================================================================== */
+
+/* Top Utility Bar */
+.topBar {
+  background-color: #0b1a30;
+  color: #cbd5e1;
+  font-size: 0.82rem;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+}
+
+.topBarContainer {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topBarNotice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.topBarContacts {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topBarLink {
+  color: #e2e8f0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.topBarLink:hover {
+  color: #3b82f6;
+}
+
+.topBarDivider {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* Sticky Main Navigation Header */
+.stickyHeader {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+}
+
+.navContainer {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand Logo */
+.logoArea {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logoIcon {
+  width: 38px;
+  height: 38px;
+  background-color: #0052cc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.logoText {
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #0b1a30;
+}
+
+.logoText span {
+  color: #0052cc;
+  font-weight: 700;
+}
+
+/* Desktop Links */
+.desktopNavLinks {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navLink {
+  color: #334155;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: #0052cc;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0052cc;
+  transition: width 0.2s ease;
+  border-radius: 2px;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* Desktop CTA */
+.desktopNavCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #0052cc;
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 82, 204, 0.28);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.desktopNavCta:hover {
+  background-color: #003d99;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 82, 204, 0.42);
+}
+
+/* Mobile Controls */
+.mobileMenuToggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: #0b1a30;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileNavCta {
+  display: none;
+  background-color: #0052cc;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  transition: background 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 82, 204, 0.25);
+  text-decoration: none;
+}
+
+/* Mobile Drawer Dropdown */
+.mobileDrawer {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 2px solid #cbd5e1;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+  padding: 20px 24px;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 1000;
+}
+
+.mobileDrawerLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobileDrawerLink {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0b1a30;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+}
+
+.mobileDrawerLink:hover {
+  background-color: #f1f5f9;
+  color: #0052cc;
+}
+
+.mobileDrawerCta {
+  background-color: #0052cc;
+  color: #ffffff;
+  padding: 13px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 82, 204, 0.3);
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .topBar {
+    display: none;
+  }
+
+  .desktopNavLinks,
+  .desktopNavCta {
+    display: none;
+  }
+
+  .mobileMenuToggle,
+  .mobileNavCta {
+    display: inline-flex;
+  }
+
+  .mobileDrawer {
+    display: flex;
+  }
+
+  .navContainer {
+    height: 60px;
+  }
+}

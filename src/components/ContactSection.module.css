@@ -1,0 +1,396 @@
+/* ==========================================================================
+   Contact Section Styles - Muvad Consults
+   Blue primary, orange accent
+   ========================================================================== */
+
+.contactSection {
+  background-color: #ffffff;
+  padding: 100px 0 110px 0;
+  width: 100%;
+  border-top: 1px solid #e2e8f0;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Two-column grid: left info, right form */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+/* -------------------------------------------------------
+   Left Column: Text Info & Contact Details
+   ------------------------------------------------------- */
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 6px 16px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0052cc;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.badgeDot {
+  width: 7px;
+  height: 7px;
+  background-color: #ff5722;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.title {
+  font-size: clamp(2.2rem, 3.5vw, 3.1rem);
+  font-weight: 900;
+  line-height: 1.16;
+  letter-spacing: -0.03em;
+  color: #0b1a30;
+  margin-bottom: 18px;
+}
+
+.titleBlue {
+  color: #0052cc;
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #475569;
+  margin-bottom: 44px;
+}
+
+/* Contact cards */
+.contactCards {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.contactCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px 22px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+}
+
+.contactCard:hover {
+  border-color: #0052cc;
+  box-shadow: 0 4px 16px rgba(0, 82, 204, 0.1);
+}
+
+.contactIconCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+  color: #0052cc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.contactCard:hover .contactIconCircle {
+  background-color: #0052cc;
+  color: #ffffff;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.contactValue {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0b1a30;
+  line-height: 1.4;
+}
+
+/* -------------------------------------------------------
+   Right Column: Contact Form
+   ------------------------------------------------------- */
+.formCol {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 44px 40px;
+  box-shadow: 0 12px 40px -10px rgba(11, 26, 48, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.formTitle {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #0b1a30;
+  letter-spacing: -0.025em;
+  margin-bottom: 6px;
+}
+
+.formSubtitle {
+  font-size: 0.94rem;
+  color: #64748b;
+  margin-bottom: 32px;
+}
+
+/* 2-up grid for name/company fields */
+.formGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldLabel {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #0b1a30;
+  letter-spacing: -0.01em;
+}
+
+.required {
+  color: #ff5722;
+  margin-left: 2px;
+}
+
+.fieldInput {
+  height: 48px;
+  padding: 0 16px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 0.94rem;
+  color: #0f172a;
+  background-color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.fieldInput:focus {
+  border-color: #0052cc;
+  box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+}
+
+.fieldInput::placeholder {
+  color: #94a3b8;
+}
+
+.fieldSelect {
+  height: 48px;
+  padding: 0 14px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 0.94rem;
+  color: #0f172a;
+  background-color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.fieldSelect:focus {
+  border-color: #0052cc;
+  box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+}
+
+.fieldTextarea {
+  padding: 14px 16px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 0.94rem;
+  color: #0f172a;
+  background-color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.fieldTextarea:focus {
+  border-color: #0052cc;
+  box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+}
+
+.fieldTextarea::placeholder {
+  color: #94a3b8;
+}
+
+.submitBtn {
+  width: 100%;
+  height: 54px;
+  background-color: #0052cc;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 18px rgba(0, 82, 204, 0.3);
+  margin-top: 8px;
+}
+
+.submitBtn:hover {
+  background-color: #003d99;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0, 82, 204, 0.42);
+}
+
+.submitBtn:active {
+  transform: translateY(0);
+}
+
+/* Success state */
+.successState {
+  padding: 36px 28px;
+  background-color: #f0fdf4;
+  border: 1.5px solid #bbf7d0;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.successIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #dcfce7;
+  border: 2px solid #86efac;
+  color: #16a34a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.successTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #15803d;
+}
+
+.successMsg {
+  font-size: 0.94rem;
+  color: #166534;
+  line-height: 1.55;
+}
+
+.resetBtn {
+  background-color: #166534;
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s;
+  margin-top: 8px;
+}
+
+.resetBtn:hover {
+  background-color: #14532d;
+}
+
+/* -------------------------------------------------------
+   Responsive
+   ------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 52px;
+  }
+
+  .formCol {
+    padding: 36px 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contactSection {
+    padding: 64px 0 72px 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .formCol {
+    padding: 28px 22px;
+    border-radius: 18px;
+  }
+
+  .formTitle {
+    font-size: 1.35rem;
+  }
+}

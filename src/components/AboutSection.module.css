@@ -1,0 +1,397 @@
+/* ==========================================================================
+   About Section Component Styles - Muvad Consults
+   Precision designed to match FenceCo "About Us" reference screenshots
+   ========================================================================== */
+
+.aboutSection {
+  background-color: #ffffff;
+  padding: 100px 0 110px 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.aboutContainer {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --------------------------------------------------------------------------
+   Top Row: Two columns on desktop (Left: Title; Right: Paragraphs & CTAs)
+   -------------------------------------------------------------------------- */
+.topGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 64px;
+  align-items: flex-start;
+  margin-bottom: 56px;
+}
+
+/* Left Column */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Badge Pill: • ABOUT US */
+.aboutBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 6px 16px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #1e293b;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.badgeDot {
+  width: 7px;
+  height: 7px;
+  background-color: #ff5722;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Section Headline */
+.aboutTitle {
+  font-size: clamp(2.4rem, 4.2vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.03em;
+  color: #0b1a30;
+}
+
+.highlightBlue {
+  color: #0052cc;
+  display: inline-block;
+}
+
+/* Right Column */
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 12px;
+}
+
+/* Lead Paragraph (Bold / High-Contrast Statement) */
+.leadText {
+  font-size: clamp(1.15rem, 1.45vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1.45;
+  color: #0b1a30;
+  letter-spacing: -0.015em;
+  margin-bottom: 20px;
+}
+
+/* Body Paragraph (Subtle Gray, Clear Explanation) */
+.bodyText {
+  font-size: 1rem;
+  line-height: 1.68;
+  color: #475569;
+  font-weight: 400;
+  margin-bottom: 32px;
+}
+
+/* Action Buttons Row */
+.actionsRow {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+/* Primary "More About Us" Pill CTA */
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background-color: #0b1a30;
+  color: #ffffff;
+  padding: 6px 8px 6px 24px;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(11, 26, 48, 0.2);
+  text-decoration: none;
+}
+
+.primaryCta:hover {
+  background-color: #0052cc;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 82, 204, 0.35);
+}
+
+.ctaArrowCircle {
+  width: 38px;
+  height: 38px;
+  background-color: #ff5722;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.primaryCta:hover .ctaArrowCircle {
+  transform: rotate(45deg);
+  background-color: #ffffff;
+  color: #0052cc;
+}
+
+/* "Watch Video" Secondary Action */
+.watchVideoBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 0;
+  color: #0f172a;
+  font-size: 0.98rem;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+.playCircle {
+  width: 48px;
+  height: 48px;
+  background-color: #ff5722;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(255, 87, 34, 0.35);
+  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+  flex-shrink: 0;
+}
+
+.playCircle svg {
+  margin-left: 2px; /* optical center adjustment for play triangle */
+}
+
+.watchVideoBtn:hover .playCircle {
+  transform: scale(1.08);
+  background-color: #e64a19;
+  box-shadow: 0 6px 20px rgba(255, 87, 34, 0.45);
+}
+
+.watchVideoBtn:hover {
+  color: #0052cc;
+}
+
+/* --------------------------------------------------------------------------
+   Bottom Row: Large Rounded Image Container
+   -------------------------------------------------------------------------- */
+.imageWrapper {
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px -12px rgba(11, 26, 48, 0.16), 0 2px 8px rgba(0, 0, 0, 0.04);
+  position: relative;
+  background-color: #0b1a30;
+  max-height: 620px;
+}
+
+.aboutImage {
+  width: 100%;
+  height: 100%;
+  max-height: 620px;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.imageWrapper:hover .aboutImage {
+  transform: scale(1.015);
+}
+
+/* --------------------------------------------------------------------------
+   Interactive Video Modal
+   -------------------------------------------------------------------------- */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(5, 12, 24, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 24px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  background-color: #ffffff;
+  border-radius: 20px;
+  max-width: 720px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.modalTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0b1a30;
+}
+
+.modalCloseBtn {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.modalCloseBtn:hover {
+  color: #0f172a;
+  background-color: #f1f5f9;
+}
+
+.modalBody {
+  padding: 28px 24px;
+  color: #334155;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adaptations (Tablet & Mobile Precision)
+   Matches the FenceCo Mobile Screenshot: stacked, spacious, clean
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .topGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-bottom: 40px;
+  }
+
+  .rightCol {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: 64px 0 72px 0;
+  }
+
+  .aboutContainer {
+    padding: 0 20px;
+  }
+
+  .topGrid {
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .aboutBadge {
+    margin-bottom: 16px;
+    font-size: 0.74rem;
+    padding: 5px 14px;
+  }
+
+  .aboutTitle {
+    font-size: 2.2rem;
+    line-height: 1.18;
+    margin-bottom: 14px;
+  }
+
+  .leadText {
+    font-size: 1.08rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .bodyText {
+    font-size: 0.94rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .actionsRow {
+    gap: 16px;
+  }
+
+  .primaryCta {
+    padding: 6px 8px 6px 18px;
+    font-size: 0.9rem;
+  }
+
+  .ctaArrowCircle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .playCircle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .watchVideoBtn {
+    font-size: 0.92rem;
+  }
+
+  .imageWrapper {
+    border-radius: 20px;
+    max-height: 380px;
+  }
+
+  .aboutImage {
+    max-height: 380px;
+  }
+}
+
+@media (max-width: 480px) {
+  .actionsRow {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .aboutTitle {
+    font-size: 1.95rem;
+  }
+}
