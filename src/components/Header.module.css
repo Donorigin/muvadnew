@@ -71,7 +71,7 @@
   max-width: 1320px;
   margin: 0 auto;
   padding: 0 24px;
-  height: 72px;
+  height: 84px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -255,6 +255,11 @@
     display: none;
   }
 
+  .logoText,
+  .logoIcon {
+    display: none;
+  }
+
   .desktopNavLinks,
   .desktopNavCta {
     display: none;
@@ -270,6 +275,6 @@
   }
 
   .navContainer {
-    height: 60px;
+    height: 72px;
   }
 }

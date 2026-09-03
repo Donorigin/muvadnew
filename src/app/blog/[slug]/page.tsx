@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, use } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
@@ -9,11 +9,12 @@ import styles from "./blogDetail.module.css";
 import { BLOG_POSTS } from "@/data/blogData";
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export default function BlogDetailPage({ params }: PageProps) {
-  const post = BLOG_POSTS.find((p) => p.slug === params.slug);
+  const resolvedParams = use(params);
+  const post = BLOG_POSTS.find((p) => p.slug === resolvedParams.slug);
   const [avatarError, setAvatarError] = useState(false);
 
   if (!post) {

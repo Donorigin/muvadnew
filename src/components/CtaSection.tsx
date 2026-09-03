@@ -32,36 +32,6 @@ export default function CtaSection() {
           <span>Book a Discovery Call</span>
         </a>
 
-        {/* Stats Row */}
-        <div className={styles.statsRow}>
-          <div className={styles.statItem}>
-            <span className={styles.statNumber}>
-              500<span className={styles.statAccent}>+</span>
-            </span>
-            <span className={styles.statLabel}>Winning Bids Submitted</span>
-          </div>
-          <div className={styles.statDivider} />
-          <div className={styles.statItem}>
-            <span className={styles.statNumber}>
-              6<span className={styles.statAccent}>+</span>
-            </span>
-            <span className={styles.statLabel}>Trade Industries Served</span>
-          </div>
-          <div className={styles.statDivider} />
-          <div className={styles.statItem}>
-            <span className={styles.statNumber}>
-              $0
-            </span>
-            <span className={styles.statLabel}>Upfront Cost. Ever.</span>
-          </div>
-          <div className={styles.statDivider} />
-          <div className={styles.statItem}>
-            <span className={styles.statNumber}>
-              <span className={styles.statAccent}>100</span>%
-            </span>
-            <span className={styles.statLabel}>Pay-When-You-Get-Paid Model</span>
-          </div>
-        </div>
       </div>
     </section>
   );
