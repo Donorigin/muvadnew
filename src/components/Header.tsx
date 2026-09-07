@@ -94,7 +94,7 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link href="/#contact" className={styles.navLink}>
+                <Link href="/contact" className={styles.navLink}>
                   Contact
                 </Link>
               </li>
@@ -157,7 +157,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    href="/#contact"
+                    href="/contact"
                     className={styles.mobileDrawerLink}
                     onClick={() => setMobileMenuOpen(false)}
                   >

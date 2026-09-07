@@ -394,3 +394,45 @@
     font-size: 1.35rem;
   }
 }
+
+/* -------------------------------------------------------
+   SMS Consent Checkbox
+   ------------------------------------------------------- */
+.checkboxGroup {
+  margin-top: 4px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.checkboxInput {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  margin-top: 2px;
+  accent-color: #0052cc;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.checkboxText {
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: #64748b;
+}
+
+.inlineLink {
+  color: #0052cc;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.inlineLink:hover {
+  color: #003d99;
+}

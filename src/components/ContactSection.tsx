@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import styles from "./ContactSection.module.css";
 
 interface FormState {
@@ -10,6 +11,7 @@ interface FormState {
   phone: string;
   serviceType: string;
   projectDetails: string;
+  smsConsent: boolean;
 }
 
 export default function ContactSection() {
@@ -20,6 +22,7 @@ export default function ContactSection() {
     phone: "",
     serviceType: "estimating",
     projectDetails: "",
+    smsConsent: false,
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -30,6 +33,11 @@ export default function ContactSection() {
   ) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = e.target;
+    setForm((prev) => ({ ...prev, [name]: checked }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -123,7 +131,7 @@ export default function ContactSection() {
                   className={styles.resetBtn}
                   onClick={() => {
                     setSubmitted(false);
-                    setForm({ fullName: "", companyName: "", email: "", phone: "", serviceType: "estimating", projectDetails: "" });
+                    setForm({ fullName: "", companyName: "", email: "", phone: "", serviceType: "estimating", projectDetails: "", smsConsent: false });
                   }}
                 >
                   Submit Another Request
@@ -236,6 +244,25 @@ export default function ContactSection() {
                       onChange={handleChange}
                       className={styles.fieldTextarea}
                     />
+                  </div>
+
+                  {/* SMS Consent Checkbox */}
+                  <div className={styles.checkboxGroup}>
+                    <label className={styles.checkboxLabel}>
+                      <input
+                        type="checkbox"
+                        name="smsConsent"
+                        checked={form.smsConsent}
+                        onChange={handleCheckboxChange}
+                        className={styles.checkboxInput}
+                      />
+                      <span className={styles.checkboxText}>
+                        By checking this box, I consent to receive SMS messages from Muvad Consults LLC regarding appointment scheduling, project updates, and service notifications. Message frequency varies. Message &amp; data rates may apply. Reply STOP to opt out at any time. Reply HELP for help. Consent is not a condition of purchase. View our{" "}
+                        <Link href="/policy" className={styles.inlineLink}>Privacy Policy</Link>
+                        {" "}and{" "}
+                        <Link href="/terms-and-condition" className={styles.inlineLink}>Terms &amp; Conditions</Link>.
+                      </span>
+                    </label>
                   </div>
 
                   {/* Submit */}

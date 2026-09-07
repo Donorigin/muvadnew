@@ -896,3 +896,47 @@
     font-size: 1.85rem;
   }
 }
+
+/* -------------------------------------------------------
+   SMS Consent Row (Hero floating form) — below form inputs
+   ------------------------------------------------------- */
+.smsConsentRow {
+  padding: 12px 4px 4px;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 10px;
+}
+
+.smsConsentLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.smsConsentCheckbox {
+  width: 15px;
+  height: 15px;
+  min-width: 15px;
+  margin-top: 2px;
+  accent-color: #0052cc;
+  cursor: pointer;
+}
+
+.smsConsentText {
+  font-size: 0.72rem;
+  line-height: 1.55;
+  color: #64748b;
+}
+
+.smsConsentLink {
+  color: #0052cc;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.smsConsentLink:hover {
+  color: #003d99;
+}
+

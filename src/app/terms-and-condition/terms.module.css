@@ -1,0 +1,366 @@
+/* ==========================================================================
+   Terms & Conditions / Privacy Policy Shared Page Styles - Muvad Consults
+   ========================================================================== */
+
+.pageWrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.mainContent {
+  flex: 1;
+}
+
+/* Breadcrumb Bar */
+.breadcrumbBar {
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 14px 0;
+}
+
+.breadcrumbContainer {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+  font-size: 0.88rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.breadcrumbLink {
+  color: #0052cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.breadcrumbLink:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbCurrent {
+  color: #0b1a30;
+  font-weight: 600;
+}
+
+/* Hero Section */
+.heroSection {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  padding: 64px 0 52px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.heroContainer {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 6px 16px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0052cc;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.badgeDot {
+  width: 7px;
+  height: 7px;
+  background-color: #ff5722;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.heroTitle {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: -0.03em;
+  color: #0b1a30;
+  margin-bottom: 18px;
+}
+
+.titleAccent {
+  color: #0052cc;
+}
+
+.heroDates {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.dateSep {
+  color: #cbd5e1;
+}
+
+/* Content Layout */
+.contentSection {
+  padding: 60px 0 90px 0;
+}
+
+.contentContainer {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* Sidebar TOC */
+.sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.tocCard {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px 24px;
+}
+
+.tocTitle {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.tocList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tocLink {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #475569;
+  text-decoration: none;
+  padding: 7px 10px;
+  border-radius: 8px;
+  transition: background-color 0.18s, color 0.18s;
+  line-height: 1.4;
+}
+
+.tocLink:hover {
+  background-color: #eff6ff;
+  color: #0052cc;
+}
+
+/* Article */
+.article {
+  min-width: 0;
+}
+
+.section {
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.section:last-of-type {
+  border-bottom: none;
+}
+
+.sectionTitle {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #0b1a30;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+  line-height: 1.25;
+}
+
+.paragraph {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #334155;
+}
+
+.bulletList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.bulletList li {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #334155;
+  padding-left: 22px;
+  position: relative;
+}
+
+.bulletList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #0052cc;
+}
+
+.inlineLink {
+  color: #0052cc;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.18s;
+}
+
+.inlineLink:hover {
+  border-bottom-color: #0052cc;
+}
+
+/* Info Grid for SMS section */
+.infoGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 18px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 24px 26px;
+}
+
+.infoItem {
+  display: flex;
+  gap: 10px;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: #334155;
+  flex-wrap: wrap;
+}
+
+.infoLabel {
+  font-weight: 700;
+  color: #0b1a30;
+  white-space: nowrap;
+}
+
+.infoValue {
+  color: #475569;
+}
+
+/* Contact Card */
+.contactCard {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contactName {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0b1a30;
+  margin-bottom: 4px;
+}
+
+.contactDetail {
+  font-size: 0.96rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.contactDetail span {
+  font-weight: 700;
+  color: #0b1a30;
+}
+
+/* Acknowledgement box */
+.acknowledgement {
+  background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+  border: 1px solid #bfdbfe;
+  border-left: 4px solid #0052cc;
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  font-size: 0.98rem;
+  color: #334155;
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .contentContainer {
+    grid-template-columns: 240px 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 44px 0 36px 0;
+  }
+
+  .contentSection {
+    padding: 40px 0 60px 0;
+  }
+
+  .contentContainer {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .sidebar {
+    position: static;
+    margin-bottom: 36px;
+  }
+
+  .heroDates {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .dateSep {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.2rem;
+  }
+
+  .infoGrid {
+    padding: 18px;
+  }
+}

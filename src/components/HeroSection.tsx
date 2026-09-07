@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import styles from "./HeroSection.module.css";
 
 // =========================================================================
@@ -19,13 +20,19 @@ export default function HeroSection() {
     email: "",
     serviceType: "take-offs",
     message: "",
+    smsConsent: false,
   });
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type } = e.target;
+    if (type === 'checkbox') {
+      const checked = (e.target as HTMLInputElement).checked;
+      setFormData((prev) => ({ ...prev, [name]: checked }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -148,92 +155,113 @@ export default function HeroSection() {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className={styles.formGrid}>
-              {/* Full Name */}
-              <div className={styles.inputGroup}>
-                <span className={styles.inputIcon}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
-                  </svg>
-                </span>
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Full name"
-                  required
-                  value={formData.fullName}
-                  onChange={handleInputChange}
-                  className={styles.formInput}
-                />
-              </div>
+            <>
+              <form onSubmit={handleSubmit} className={styles.formGrid}>
+                {/* Full Name */}
+                <div className={styles.inputGroup}>
+                  <span className={styles.inputIcon}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
+                  </span>
+                  <input
+                    type="text"
+                    name="fullName"
+                    placeholder="Full name"
+                    required
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    className={styles.formInput}
+                  />
+                </div>
 
-              {/* Email Address */}
-              <div className={styles.inputGroup}>
-                <span className={styles.inputIcon}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect width="20" height="16" x="2" y="4" rx="2" />
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                  </svg>
-                </span>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email address"
-                  required
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className={styles.formInput}
-                />
-              </div>
+                {/* Email Address */}
+                <div className={styles.inputGroup}>
+                  <span className={styles.inputIcon}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect width="20" height="16" x="2" y="4" rx="2" />
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                  </span>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email address"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className={styles.formInput}
+                  />
+                </div>
 
-              {/* Type of Service */}
-              <div className={styles.inputGroup}>
-                <span className={styles.inputIcon}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-                  </svg>
-                </span>
-                <select
-                  name="serviceType"
-                  value={formData.serviceType}
-                  onChange={handleInputChange}
-                  className={styles.formSelect}
-                  aria-label="Type of service"
-                >
-                  <option value="take-offs">Take-Offs &amp; Estimating</option>
-                  <option value="proposals">Full Proposal Preparation</option>
-                  <option value="bidding">GC Bidding &amp; Follow-up</option>
-                  <option value="all-in-one">Complete All-in-One Package</option>
-                </select>
-              </div>
+                {/* Type of Service */}
+                <div className={styles.inputGroup}>
+                  <span className={styles.inputIcon}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                    </svg>
+                  </span>
+                  <select
+                    name="serviceType"
+                    value={formData.serviceType}
+                    onChange={handleInputChange}
+                    className={styles.formSelect}
+                    aria-label="Type of service"
+                  >
+                    <option value="take-offs">Take-Offs &amp; Estimating</option>
+                    <option value="proposals">Full Proposal Preparation</option>
+                    <option value="bidding">GC Bidding &amp; Follow-up</option>
+                    <option value="all-in-one">Complete All-in-One Package</option>
+                  </select>
+                </div>
 
-              {/* Message */}
-              <div className={styles.inputGroup}>
-                <span className={styles.inputIcon}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                  </svg>
-                </span>
-                <input
-                  type="text"
-                  name="message"
-                  placeholder="Project details / message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  className={styles.formInput}
-                />
-              </div>
+                {/* Message */}
+                <div className={styles.inputGroup}>
+                  <span className={styles.inputIcon}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>
+                  </span>
+                  <input
+                    type="text"
+                    name="message"
+                    placeholder="Project details / message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    className={styles.formInput}
+                  />
+                </div>
 
-              {/* Submit CTA Button */}
-              <button type="submit" className={styles.submitBtn}>
-                <span>Book a Discovery Call</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
-              </button>
-            </form>
+                {/* Submit CTA Button */}
+                <button type="submit" className={styles.submitBtn}>
+                  <span>Book a Discovery Call</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </button>
+              </form>
+
+              {/* SMS Consent — below the form row, full width */}
+              <div className={styles.smsConsentRow}>
+                <label className={styles.smsConsentLabel}>
+                  <input
+                    type="checkbox"
+                    name="smsConsent"
+                    checked={formData.smsConsent}
+                    onChange={handleInputChange}
+                    className={styles.smsConsentCheckbox}
+                  />
+                  <span className={styles.smsConsentText}>
+                    By checking this box, I consent to receive SMS messages from Muvad Consults LLC regarding appointment scheduling, project updates, and service notifications. Message frequency varies. Message &amp; data rates may apply. Reply STOP to opt out at any time. Reply HELP for help. Consent is not a condition of purchase. View our{" "}
+                    <Link href="/policy" className={styles.smsConsentLink}>Privacy Policy</Link>
+                    {" "}and{" "}
+                    <Link href="/terms-and-condition" className={styles.smsConsentLink}>Terms &amp; Conditions</Link>.
+                  </span>
+                </label>
+              </div>
+            </>
           )}
         </div>
       </section>

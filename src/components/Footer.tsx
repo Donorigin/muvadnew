@@ -106,8 +106,8 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Muvad Consults. All rights reserved.
           </p>
           <div className={styles.bottomLinks}>
-            <a href="#" className={styles.bottomLink}>Privacy Policy</a>
-            <a href="#" className={styles.bottomLink}>Terms of Service</a>
+            <Link href="/policy" className={styles.bottomLink}>Privacy Policy</Link>
+            <Link href="/terms-and-condition" className={styles.bottomLink}>Terms of Service</Link>
             <a href="#" className={styles.bottomLink}>Security</a>
           </div>
         </div>

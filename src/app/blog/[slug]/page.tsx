@@ -1,35 +1,44 @@
-"use client";
-
-import React, { useState, use } from "react";
+import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import styles from "./blogDetail.module.css";
-import { BLOG_POSTS } from "@/data/blogData";
+import { sanityFetch } from "@/sanity/lib/live";
+import { POST_BY_SLUG_QUERY, LATEST_POSTS_QUERY } from "@/sanity/lib/queries";
+import { urlForImage } from "@/sanity/lib/image";
+import { PortableText } from "@portabletext/react";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export default function BlogDetailPage({ params }: PageProps) {
-  const resolvedParams = use(params);
-  const post = BLOG_POSTS.find((p) => p.slug === resolvedParams.slug);
-  const [avatarError, setAvatarError] = useState(false);
+export default async function BlogDetailPage({ params }: PageProps) {
+  const resolvedParams = await params;
+  const { data: post } = await sanityFetch({ 
+    query: POST_BY_SLUG_QUERY, 
+    params: { slug: resolvedParams.slug } 
+  }) as { data: any };
 
   if (!post) {
     notFound();
   }
 
-  const relatedPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
+  // Fetch some related/latest posts for the sidebar
+  const { data: allLatest } = await sanityFetch({ query: LATEST_POSTS_QUERY }) as { data: any[] };
+  const relatedPosts = allLatest.filter((p: any) => p.slug !== post.slug).slice(0, 3);
+
+  const dateStr = post.publishedAt 
+    ? new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+    : 'Recently';
+    
+  const imageUrl = post.mainImage ? urlForImage(post.mainImage)?.url() : "/images/next.jpg";
 
   return (
     <div className={styles.pageWrapper}>
-      {/* Global Sticky Navigation */}
       <Header />
 
       <main className={styles.mainContent}>
-        {/* Breadcrumb Navigation */}
         <div className={styles.breadcrumbBar}>
           <div className={styles.breadcrumbContainer}>
             <Link href="/" className={styles.breadcrumbLink}>
@@ -44,52 +53,31 @@ export default function BlogDetailPage({ params }: PageProps) {
           </div>
         </div>
 
-        {/* Hero Image Banner */}
         <div className={styles.heroBanner}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={post.image}
+            src={imageUrl as string}
             alt={post.title}
             className={styles.heroImage}
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = "/images/next.jpg";
-            }}
           />
           <div className={styles.heroOverlay} />
         </div>
 
-        {/* Main Article Section */}
         <section className={styles.articleSection}>
           <div className={styles.articleLayout}>
-            {/* --- LEFT: Article Body --- */}
             <article className={styles.articleBody}>
-              {/* Category Tag */}
-              <span className={styles.categoryPill}>{post.category}</span>
+              <span className={styles.categoryPill}>{post.category || 'Updates'}</span>
 
-              {/* Title */}
               <h1 className={styles.articleTitle}>{post.title}</h1>
 
-              {/* Author & Meta Row */}
               <div className={styles.articleMeta}>
                 <div className={styles.authorArea}>
                   <div className={styles.authorAvatar}>
-                    {!avatarError ? (
-                      /* eslint-disable-next-line @next/next/no-img-element */
-                      <img
-                        src={post.author.avatar}
-                        alt={post.author.name}
-                        className={styles.authorAvatarImg}
-                        onError={() => setAvatarError(true)}
-                      />
-                    ) : (
-                      <span className={styles.authorFallback}>
-                        {post.author.name.charAt(0)}
-                      </span>
-                    )}
+                    <span className={styles.authorFallback}>M</span>
                   </div>
                   <div className={styles.authorInfo}>
-                    <span className={styles.authorName}>{post.author.name}</span>
-                    <span className={styles.authorRole}>{post.author.role}</span>
+                    <span className={styles.authorName}>Muvad Consults</span>
+                    <span className={styles.authorRole}>Estimating Experts</span>
                   </div>
                 </div>
 
@@ -102,7 +90,7 @@ export default function BlogDetailPage({ params }: PageProps) {
                     <line x1="8" y1="2" x2="8" y2="6" />
                     <line x1="3" y1="10" x2="21" y2="10" />
                   </svg>
-                  {post.date}
+                  {dateStr}
                 </span>
 
                 <span className={styles.readTimePill}>
@@ -110,20 +98,18 @@ export default function BlogDetailPage({ params }: PageProps) {
                     <circle cx="12" cy="12" r="10" />
                     <polyline points="12 6 12 12 16 14" />
                   </svg>
-                  {post.readTime}
+                  5 min read
                 </span>
               </div>
 
-              {/* Article Content */}
               <div className={styles.articleContent}>
-                {post.content.map((paragraph, index) => (
-                  <p key={index} className={styles.articleParagraph}>
-                    {paragraph}
-                  </p>
-                ))}
+                {post.body ? (
+                  <PortableText value={post.body} />
+                ) : (
+                  <p className={styles.articleParagraph}>{post.excerpt}</p>
+                )}
               </div>
 
-              {/* Inline CTA Banner */}
               <div className={styles.inlineCtaBanner}>
                 <h3>Ready to Stop Losing Contracts to Bad Estimates?</h3>
                 <p>
@@ -139,9 +125,7 @@ export default function BlogDetailPage({ params }: PageProps) {
               </div>
             </article>
 
-            {/* --- RIGHT: Sidebar --- */}
             <aside className={styles.sidebar}>
-              {/* Quick CTA Card */}
               <div className={styles.quickCtaCard}>
                 <h3>Win More Bids. Pay Later.</h3>
                 <p>
@@ -156,26 +140,29 @@ export default function BlogDetailPage({ params }: PageProps) {
                 </Link>
               </div>
 
-              {/* Related Posts */}
               <div className={styles.sidebarCard}>
-                <h3 className={styles.sidebarTitle}>Related Articles</h3>
-                {relatedPosts.map((related) => (
-                  <Link
-                    key={related.slug}
-                    href={`/blog/${related.slug}`}
-                    className={styles.relatedPost}
-                  >
-                    <span className={styles.relatedCategory}>{related.category}</span>
-                    <span className={styles.relatedTitle}>{related.title}</span>
-                    <span className={styles.relatedDate}>{related.date}</span>
-                  </Link>
-                ))}
+                <h3 className={styles.sidebarTitle}>Recent Articles</h3>
+                {relatedPosts.map((related: any) => {
+                  const relDateStr = related.publishedAt 
+                    ? new Date(related.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+                    : 'Recently';
+                  return (
+                    <Link
+                      key={related._id}
+                      href={`/blog/${related.slug}`}
+                      className={styles.relatedPost}
+                    >
+                      <span className={styles.relatedCategory}>{related.category || 'Updates'}</span>
+                      <span className={styles.relatedTitle}>{related.title}</span>
+                      <span className={styles.relatedDate}>{relDateStr}</span>
+                    </Link>
+                  )
+                })}
               </div>
             </aside>
           </div>
         </section>
 
-        {/* Back to Blog */}
         <div className={styles.backToBlogSection}>
           <div className={styles.backToBlogContainer}>
             <Link href="/blog" className={styles.backBtn}>
