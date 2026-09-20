@@ -40,10 +40,28 @@ export default function ContactSection() {
     setForm((prev) => ({ ...prev, [name]: checked }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.fullName || !form.email || !form.projectDetails) return;
-    setSubmitted(true);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xeaoekkq", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(form)
+      });
+      
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        alert("Oops! There was a problem submitting your form");
+      }
+    } catch (error) {
+      alert("Oops! There was a problem submitting your form");
+    }
   };
 
   return (

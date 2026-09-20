@@ -35,13 +35,31 @@ export default function HeroSection() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.fullName || !formData.email) {
       alert("Please enter your name and email address.");
       return;
     }
-    setFormSubmitted(true);
+    
+    try {
+      const response = await fetch("https://formspree.io/f/xeaoekkq", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      if (response.ok) {
+        setFormSubmitted(true);
+      } else {
+        alert("Oops! There was a problem submitting your form");
+      }
+    } catch (error) {
+      alert("Oops! There was a problem submitting your form");
+    }
   };
 
   return (
