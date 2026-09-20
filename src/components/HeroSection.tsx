@@ -113,7 +113,7 @@ export default function HeroSection() {
                     /* eslint-disable-next-line @next/next/no-img-element */
                     <img
                       src={TESTIMONIAL_AVATAR_IMAGE}
-                      alt="David M."
+                      alt="Muvad Consults."
                       className={styles.avatarImage}
                       onError={() => setAvatarError(true)}
                     />
@@ -123,10 +123,10 @@ export default function HeroSection() {
                 </div>
                 <div className={styles.testimonialText}>
                   <p className={styles.testimonialQuote}>
-                    &ldquo;Providing accurate take-offs &amp; winning bids with trust &amp; care since 2020&rdquo;
+                    &ldquo;Providing accurate take-offs &amp; winning bids with trust &amp; care&rdquo;
                   </p>
-                  <h4 className={styles.testimonialAuthor}>David M.</h4>
-                  <span className={styles.testimonialRole}>Managing Director, Muvad Consults</span>
+                  <h4 className={styles.testimonialAuthor}>Muvad Consults.</h4>
+                  {/* <span className={styles.testimonialRole}>Managing Director, Muvad Consults</span> */}
                 </div>
               </div>
             </div>
